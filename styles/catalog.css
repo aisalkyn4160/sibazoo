@@ -1,0 +1,78 @@
+.catalog-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.catalog-item{
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+}
+.catalog-item h3{
+    font-family: 'ARCO Cyrillic';
+    text-align: center;
+	text-transform: uppercase;
+    letter-spacing: 0.08rem;
+}
+.catalog-item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+.catalog-item-title{
+    background: #2C2C2C52;
+    padding: 45px;
+    position: relative;
+    color: #FFFFFF;
+    transition: .3s ease;
+}
+.catalog-item-title a{
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 0 auto;
+}
+.catalog-item-link{
+    display: none;
+}
+.catalog-item:hover .catalog-item-title{
+    padding-top: 262px;
+    background: transparent;
+}
+.catalog-item:hover .catalog-item-link{
+    display: block;
+}
+.catalog-item:hover .catalog-item-title a{
+    background: #F6EEE126;
+    backdrop-filter: blur(40px);
+    border-radius: 133px;
+    display: block;
+}
+.catalog-item:hover .catalog-item-title span:first-child{
+    font-family: 'Manrope';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: capitalize;
+}
+.dark-theme .category-content-left{
+    background-color: #3C3C3B;
+}
+.dark-theme .catalog-menu .has-sub-menu .sub-menu > li > a{
+    color: rgba(255, 255, 255, 0.45);
+}
+.dark-theme .catalog-menu .sub-menu-arrow:not(.active) svg rect{
+    fill: #2D2D2D;
+}
+.dark-theme .catalog-menu .sub-menu-arrow:not(.active) svg path{
+    stroke: #EFEFEF;
+}
+@media (max-width: 576px){
+    .catalog-item{
+        border-radius: 20px;
+    }
+    
+}

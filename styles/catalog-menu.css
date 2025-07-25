@@ -1,0 +1,107 @@
+.catalog-btn .catalog-close{
+    display: none;
+}
+.catalog-btn.active .catalog-icon{
+    display: none;
+}
+.catalog-btn.active .catalog-close{
+    display: block;
+}
+.catalog-dropdown{
+    position: absolute;
+    overflow: auto;
+    width: 100%;
+    height: calc(100% - 185px);
+    top: 185px;
+    left: 0;
+    /* background-color: #fff; */
+    background: #3C3C3B52;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.catalog-menu-wrapper{
+    background: #FFF;
+    padding: 20px 0;
+    border-top: 1px solid #2C2C2C1F;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.catalog-dropdown.active{
+    opacity: 1;
+    visibility: visible;
+}
+.catalog-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 12px;
+  row-gap: 20px;
+}
+.catalog-menu h6 {
+  margin-bottom: 28px;
+}
+.catalog-menu > li > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  color: #3c3c3b;
+  margin-bottom: 8px;
+}
+.catalog-menu > li > a img {
+  width: 24px;
+  height: 24px;
+}
+.catalog-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0%;
+  color: rgba(44, 44, 44, 0.45);
+}
+.catalog-menu .brands{
+    grid-column: 1/4;
+    position: relative;
+}
+.brands-more{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.catalog-menu .brands ul{
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 20px;
+}
+.catalog-menu .brands ul img{
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    height: 100%;
+    aspect-ratio: 590/368;
+    border: 1px solid #2C2C2C1F;
+}
+
+.dark-theme .catalog-menu ul{
+  color:rgba(255, 255, 255, 0.45) ;
+}
+
+.dark-theme .catalog-menu > li > a{
+    color: #EFEFEF;
+}
+.dark-theme .catalog-menu-wrapper{
+  background-color: #3C3C3B;
+}
+.dark-theme .brands svg path{
+    stroke: #EFEFEF;
+}

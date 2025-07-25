@@ -1,0 +1,130 @@
+.about-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+.about-img{
+    border-radius: 40px;
+    overflow: hidden;
+}
+.about-img img{
+    object-position: right;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 40px;
+    padding: 40px;
+    overflow: hidden;
+    background: #FEC29F;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 38px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    color: #CC906D;
+    min-height: 634px;
+}
+.about-icon{
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+}
+.advantages{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.advantages-item{
+    border-radius: 40px;
+    background: #FFFFFF;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #3C3C3B;
+}
+.advantages-item span{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 93px;
+}
+.advantages-item span svg{
+    width: 100%;
+    height: 100%;
+
+}
+.dark-theme .advantages-item{
+    background: #3C3C3B;
+    color: #FFFFFF;
+}
+.dark-theme .licenses-swiper{
+    background: #3C3C3B;
+}
+@media (max-width: 950px) {
+    .advantages{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .advantages-item span{
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-content{ 
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 12px;
+    }
+    .about-text{
+        min-height: 250px;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .about-img{
+        border-radius: 20px;
+    }
+    .about-text{
+        padding: 16px;
+        border-radius: 20px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .about-icon{
+        width: 40px;
+        height: 40px;
+    }
+
+    .advantages{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .advantages-item{
+        padding: 16px;
+        border-radius: 20px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .advantages-item span{
+        width: 40px;
+        height: 40px;
+    }
+}

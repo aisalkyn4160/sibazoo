@@ -1,0 +1,286 @@
+#choose-your-pet,
+#pets-data{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.pet-filters{
+    width: 384px;
+    border-radius: 16px;
+    background-color: #fff;
+    padding: 16px;
+    position: relative;
+    max-height: 100%;
+    overflow: auto;
+}
+.pet-filters-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pet-filters h3{
+    width: 100%;
+    padding: 0 60px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(44, 44, 44, 0.12);
+    text-align: center;
+}
+.choose-pet{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.choose-pet-item img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    margin-bottom: 22px;
+}
+
+
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #FAF9F6;
+  cursor: pointer;
+  position: relative;
+}
+.custom-select-trigger::after{
+    content: '';
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    background: url(../assets/icons/Arrow.png) no-repeat center center / cover;
+    transition: all 0.3s ease;
+}
+.custom-select-trigger.active::after{
+    transform: translateY(-50%) rotate(90deg);
+}
+.custom-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: #fff;
+  display: none;
+  z-index: 10;
+  box-shadow: 0px 6px 40px 0px #0000000A;
+}
+
+.custom-option {
+  padding: 6px 0px;
+  cursor: pointer;
+}
+
+.custom-option:hover {
+  color: #FFA0A0;
+}
+
+.original-select {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+
+.custom-radio {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #FAF9F6;
+}
+
+.custom-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+
+.radio-icon {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3C3C3B;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.3s;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-icon {
+  border-color: #FDE9EA;
+}
+
+.radio-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #FFA0A0;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-icon::after {
+  opacity: 1;
+}
+
+.radio-text {
+  font-size: 16px;
+  color: rgba(44, 44, 44, 0.45);
+}
+
+.pet-filters-form input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #FAF9F6;
+    font-size: 16px;
+}
+.pet-filters-form label{
+    display: flex;
+    color: #3C3C3B;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.castration-checkbox{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #FAF9F6;
+}
+.castration-checkbox input[type="checkbox"]{
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    opacity: 0;
+}
+.castration-checkbox label{
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(44, 44, 44, 0.45);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+}
+.castration-checkbox label svg{
+    opacity: 0;
+    transition: .3s ease;
+}
+.castration-checkbox input[type="checkbox"]:checked + label svg{
+    opacity: 1;
+}
+.castration-checkbox span{
+    padding-left: 13px;
+}
+.rations{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.rations .btn{
+    background-color: #FAF9F6;
+    color: #3C3C3B !important;
+}
+.rations .btn.active{
+    background-color: #FFA0A0;
+    color: #fff !important;
+}
+.pet-filters-btn{
+    width: 100%;
+    opacity: 35%;
+}
+
+.dark-theme .pet-filters{
+    background: #3C3C3B;
+}
+.dark-theme .pet-filters h3{
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.dark-theme .custom-select-trigger{
+  background: #2d2d2d;
+}
+.dark-theme .custom-select-trigger:after{
+    background: url(../assets/icons/white-Arrow.png) no-repeat center center / cover;
+}
+.dark-theme .custom-options{
+  background: #3C3C3B;
+  color: #EFEFEF;
+}
+.dark-theme .pet-filters-form label{
+  color: #EFEFEF;
+}
+.dark-theme .pet-filters-form input{
+  background: #2d2d2d;
+  color: #EFEFEF;
+}
+.dark-theme .custom-radio{
+  background: #2d2d2d;
+}
+.dark-theme .radio-icon{
+  border-color: #EFEFEF;
+}
+.dark-theme .radio-text{
+  color: #EFEFEF;
+}
+.dark-theme .castration-checkbox{
+  background: #2d2d2d;
+}
+.dark-theme .castration-checkbox label{
+  border-color: #EFEFEF;
+  border-width: 1px;
+}
+.dark-theme .pet-filters-btn{
+  opacity: 100%;
+}
+
+.dark-theme .rations .btn{
+  background: #2d2d2d;
+  color: #EFEFEF !important;
+}
+.dark-theme .rations .btn.active{
+  background: #FFA0A0;
+  color: #fff !important;
+}

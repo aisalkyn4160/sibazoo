@@ -1,0 +1,317 @@
+@import url('header.css');
+@import url('catalog-menu.css');
+@import url('mobile-menu.css');
+@import url('banner.css');
+@import url('offer.css');
+@import url('catalog.css');
+@import url('brands.css');
+@import url('reviews.css');
+@import url('footer.css');
+@import url('product-card.css');
+@import url('category.css');
+@import url('filters.css');
+@import url('product.css');
+@import url('about.css');
+@import url('lisenses.css');
+@import url('our-works.css');
+@import url('contacts.css');
+@import url('register.css');
+@import url('profile.css');
+@import url('pet-filters.css');
+@import url('cart.css');
+@import url('auto-order.css');
+/* -------------------------------------------reset-styles------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@font-face {
+	font-family: 'ARCO Cyrillic';
+	src: url(../fonts/arcocyrillic.otf) format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display:none;}
+button{cursor: pointer; background: transparent;white-space: nowrap;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none; color: inherit;}
+a:hover{text-decoration: none;}
+ul li{list-style-type: none;}
+
+h1,h2, h3, h4, h5, h6{font-style: inherit;}
+
+/* -------------------------------------------main-styles------------------------------------------- */
+:root {
+  --bg-color: #faf9f6;
+  --text-color: #222222;
+  --cart-background: #fff;
+  --dropdown-border: #000;
+
+  /* другие переменные */
+}
+
+:root.dark-theme {
+  --bg-color: #222222;
+  --text-color: #ffffff;
+	--cart-background: #3C3C3B;
+  /* другие переменные для темной темы */
+}
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	font-family: 'Manrope', sans-serif;
+	background-color:var(--bg-color);
+	color: rgba(44, 44, 44, 0.45);
+	font-size: 16px;
+}
+.dark-theme,
+.dark-theme body{
+	background-color: #2D2D2D;
+	color: rgba(255, 255, 255, 0.45);
+}
+.dark-theme .header,
+.dark-theme .offers-cards,
+.dark-theme .brands-list,
+.dark-theme .review-item,
+.dark-theme .footer{
+	background: #3C3C3B;
+}
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h6,
+.dark-theme .breadcrumb-item.active{
+	color: #EFEFEF;
+}
+.no-scroll{
+	overflow: hidden;
+}
+.layout{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	position: relative;
+}
+
+header{
+	flex-shrink: 0;
+}
+
+main{
+	/* background-color:#FAF9F6; */
+	flex-grow: 1;
+}
+
+footer{
+	background-color: black;
+	flex-shrink: 0;
+}
+section{
+	padding: 30px 0;
+}
+img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+svg{
+	flex-shrink: 0;
+}
+h2{
+	font-family: 'ARCO Cyrillic';
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 100%;
+	letter-spacing: 0.08rem;
+	color: #3C3C3B;
+	margin-bottom: 20px;
+}
+h3{
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	letter-spacing: 1;
+	color: #3C3C3B;
+}
+h4{
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0%;
+	color: #2C2C2C;
+}
+h6{
+	font-weight: 800;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: 0%;
+	color: #3C3C3B;
+}
+.container{
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.btn{
+	padding: 10px 16px;
+	border-radius: 20px;
+	background-color: #FFA0A0;
+	color: #fff !important;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+}
+.tooltip{
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 180px;
+	width: 675px;
+	padding: 20px 40px;
+	border-radius: 16px;
+	background: #2C2C2C1F;
+	backdrop-filter: blur(40px);
+	color: white;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+}
+.back-to-top{
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+.tooltip-right{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+}
+.tooltip .theme-icon{
+	height: 20px;
+}
+.tooltip .animation-btn-round{
+	background: transparent;
+	border: 1px solid #FFFFFF;
+	height: 22px;
+}
+.tooltip.active {
+  opacity: 1;
+  visibility: visible;
+}
+.tooltip .theme-icon svg path{
+	fill: #FFFFFF !important;
+}
+.cookie-banner {
+    position: fixed;
+    bottom: 100px;
+    right: 0;
+    width: 344px;
+    background: #FFFFFF;
+    padding: 20px;
+    display: none;
+    margin: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.cookie-banner button {
+    background: #FFA0A0;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .3s ease;
+	margin-top: 10px;
+}
+.dark-theme .cookie-banner{
+	background: #3C3C3B;
+}
+.breadcrumbs{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: 0%;
+	padding: 20px 0;
+}
+.breadcrumb-item.active{
+	color: #3C3C3B;
+}
+.breadcrumbs span{
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background-color: rgba(44, 44, 44, 0.45);
+}
+.dark-theme .breadcrumbs span{
+	background-color: rgba(255, 255, 255, 0.45);
+}
+@media (max-width: 767px){
+	section{
+		padding: 20px 0;
+	}
+	h2{
+		font-size: 20px;
+	}
+	.tooltip{
+		width: calc(100% - 40px);
+		padding: 20px 20px;
+	}
+}
+
+@media (max-width: 576px){
+	.tooltip-logo{
+		display: none;
+	}
+	.tooltip-right{
+		gap: 10px;
+	}
+	.breadcrumbs{
+		padding-bottom: 0;
+	}
+}

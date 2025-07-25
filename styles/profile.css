@@ -1,0 +1,268 @@
+.profile-tabs {
+  display: flex;
+  margin: 0 auto 28px;
+  background: #FFFFFF;
+  border-radius: 30px;
+  padding: 4px;
+  max-width: 785px;
+  overflow: auto;
+}
+
+.tab-btn {
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.tab-btn svg{
+    width: 20px;
+    height: 20px;
+}
+.tab-btn.active {
+  background: #FDE9EA;
+  color: #FFA0A0;
+}
+.tab-btn.active svg path{
+    fill: #FFA0A0;
+}
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+.profile-info{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 40px;
+    background: #FFFFFF;
+}
+
+.profile-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background: #FFA0A0;
+  padding: 1px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.profile-info-items{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: auto;
+}
+.profile-info-item{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #3C3C3B;
+    padding: 10px 16px;
+    white-space: nowrap;
+}
+.profile-info-item span:first-child{
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0%;
+    margin-bottom: 6px;
+    color: rgba(44, 44, 44, 0.45);
+}
+
+.profile-edit-btn{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    /* margin-left: auto; */
+}
+.orders-info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #3C3C3B;
+    padding: 40px;
+    border-radius: 40px;
+    background: #FFFFFF;
+}
+
+.favorites-products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+   
+}
+.your-pets-info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #3C3C3B;
+    border-radius: 40px;
+    /* background: #FFFFFF; */
+}
+
+/* pet card */
+.pet-card{
+    padding: 40px;
+    border-radius: 40px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.pet-info-items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.pet-profile-edit-btn{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+}
+.add-pets-btn{
+  margin: 24px auto;
+}
+
+/* inteterested-products */
+.interested-products-cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+/* dark theme */
+.dark-theme .profile-tabs{
+  background: #3C3C3B;
+}
+.dark-theme .tab-btn{
+  color: #EFEFEF;
+}
+.dark-theme .tab-btn svg path{
+  fill: #EFEFEF;
+}
+.dark-theme .tab-btn.active{
+  color: #FFA0A0;
+  background: #514645;
+}
+.dark-theme .tab-btn.active svg path{
+  fill: #FFA0A0;
+}
+.dark-theme .profile-info{
+  background: #3C3C3B;
+}
+.dark-theme .profile-info-item span:first-child{
+  color: rgba(255, 255, 255, 0.45);
+}
+.dark-theme .profile-info-item{
+  color: #EFEFEF;
+}
+.dark-theme .profile-edit-btn,
+.dark-theme .pet-profile-edit-btn{
+  background: #3C3C3B;
+  color: #EFEFEF;
+}
+.dark-theme .profile-edit-btn svg path,
+.dark-theme .pet-profile-edit-btn svg path{
+  fill: #EFEFEF;
+}
+.dark-theme .orders-info{
+  background: #3C3C3B;
+  color: #EFEFEF;
+}
+
+.dark-theme .your-pets-info{
+  /* background: #3C3C3B !important; */
+  color: #EFEFEF;
+}
+
+.dark-theme .pet-card{
+  background: #3C3C3B;
+}
+@media (max-width: 767px) {
+  .favorites-products,
+  .interested-products-cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pet-card {
+    flex-wrap: wrap;
+  }
+  
+}
+
+@media (max-width: 576px) {
+  .profile-info{
+    border-radius: 20px;
+    padding: 16px;
+  }
+  .favorites-products,
+  .interested-products-cards{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+  }
+  .your-pets-info{
+    padding: 16px;
+    border-radius: 20px;
+  }
+    .pet-card{
+      padding: 16px;
+      border-radius: 20px;
+    }
+}

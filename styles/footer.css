@@ -1,0 +1,122 @@
+.footer {
+  background: #ffffff;
+  padding: 40px;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  margin-top: 30px;
+}
+.footer .logo{
+  display: none;
+}
+.footer-top .catalog-menu {
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.footer-bottom {
+  padding: 39px 0;
+  background: #ffeaea;
+  border-radius: 40px;
+  padding-bottom: 40px;
+  margin-top: 205px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #ffa0a0;
+}
+.footer-logo {
+  width: 335px;
+  height: 350px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: -200px;
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo img{
+    width: 235px;
+    height: 250px;
+}
+.footer-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.footer-logo-text {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.footer-bottom-privacy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #ffa0a0;
+  padding-top: 20px;
+}
+.developer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.developer p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.copyright span {
+  display: block;
+}
+.dark-theme .footer-logo{
+  background-color: #3C3C3B;
+}
+.dark-theme .footer-bottom{
+  background-color: rgba(81, 70, 69, 1);
+}
+.dark-theme .footer-contacts svg path{
+  fill: #EB8C8C;
+}
+@media (max-width: 900px){
+  .footer-top .catalog-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+@media (max-width: 576px){
+  .footer{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 40px 20px;
+  }
+  .footer .logo{
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer-top .catalog-menu {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .footer-logo{
+    width: 220px;
+    height: 220px;
+    margin-top: -150px;
+  }
+  .footer-logo img{
+    width: 134px;
+    height: 142px;
+  }
+  .footer-bottom{
+    margin-top: 140px;
+  }
+  .footer-contacts{
+    flex-direction: column;
+    gap: 10px;
+  }
+  }
