@@ -26,52 +26,9 @@ catalogBtn.addEventListener("click", () => {
   }
 });
 
-// dark-theme
-
-// const themeToggles = document.querySelectorAll(".theme-toggle");
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const savedTheme = localStorage.getItem("theme");
-//   if (savedTheme) {
-//     document.documentElement.classList.add(savedTheme);
-//   }
-
-// })
-// themeToggles.forEach((toggle) => {
-//   toggle.addEventListener("click", () => {
-//     document.documentElement.classList.toggle("dark-theme");
-
-//     const isDark = document.documentElement.classList.contains("dark-theme");
-
-//     if(isDark){
-//       localStorage.setItem("theme", "dark-theme");
-//     }else{
-//       localStorage.removeItem("theme");
-//     }
-//     if(document.documentElement.classList.contains("dark-theme")){
-//        toggle.querySelector('.theme-icon').innerHTML=`
-//         <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-//           <path d="M10.0968 15.8333C13.3184 15.8333 15.9301 13.2217 15.9301 10C15.9301 6.77834 13.3184 4.16667 10.0968 4.16667C6.8751 4.16667 4.26343 6.77834 4.26343 10C4.26343 13.2217 6.8751 15.8333 10.0968 15.8333Z" fill="white"/>
-//           <path d="M10.0968 19.1333C9.63851 19.1333 9.26351 18.7917 9.26351 18.3333V18.2667C9.26351 17.8083 9.63851 17.4333 10.0968 17.4333C10.5552 17.4333 10.9302 17.8083 10.9302 18.2667C10.9302 18.725 10.5552 19.1333 10.0968 19.1333ZM16.0468 16.7833C15.8302 16.7833 15.6218 16.7 15.4552 16.5417L15.3468 16.4333C15.0218 16.1083 15.0218 15.5833 15.3468 15.2583C15.6718 14.9333 16.1968 14.9333 16.5218 15.2583L16.6302 15.3667C16.9552 15.6917 16.9552 16.2167 16.6302 16.5417C16.4718 16.7 16.2635 16.7833 16.0468 16.7833ZM4.14684 16.7833C3.93018 16.7833 3.72184 16.7 3.55518 16.5417C3.23018 16.2167 3.23018 15.6917 3.55518 15.3667L3.66351 15.2583C3.98851 14.9333 4.51351 14.9333 4.83851 15.2583C5.16351 15.5833 5.16351 16.1083 4.83851 16.4333L4.73018 16.5417C4.57184 16.7 4.35518 16.7833 4.14684 16.7833ZM18.4302 10.8333H18.3635C17.9052 10.8333 17.5302 10.4583 17.5302 9.99999C17.5302 9.54166 17.9052 9.16666 18.3635 9.16666C18.8218 9.16666 19.2302 9.54166 19.2302 9.99999C19.2302 10.4583 18.8885 10.8333 18.4302 10.8333ZM1.83018 10.8333H1.76351C1.30518 10.8333 0.930176 10.4583 0.930176 9.99999C0.930176 9.54166 1.30518 9.16666 1.76351 9.16666C2.22184 9.16666 2.63018 9.54166 2.63018 9.99999C2.63018 10.4583 2.28851 10.8333 1.83018 10.8333ZM15.9385 4.99166C15.7218 4.99166 15.5135 4.90833 15.3468 4.74999C15.0218 4.42499 15.0218 3.89999 15.3468 3.57499L15.4552 3.46666C15.7802 3.14166 16.3052 3.14166 16.6302 3.46666C16.9552 3.79166 16.9552 4.31666 16.6302 4.64166L16.5218 4.74999C16.3635 4.90833 16.1552 4.99166 15.9385 4.99166ZM4.25518 4.99166C4.03851 4.99166 3.83018 4.90833 3.66351 4.74999L3.55518 4.63333C3.23018 4.30833 3.23018 3.78333 3.55518 3.45833C3.88018 3.13333 4.40518 3.13333 4.73018 3.45833L4.83851 3.56666C5.16351 3.89166 5.16351 4.41666 4.83851 4.74166C4.68018 4.90833 4.46351 4.99166 4.25518 4.99166ZM10.0968 2.53333C9.63851 2.53333 9.26351 2.19166 9.26351 1.73333V1.66666C9.26351 1.20833 9.63851 0.833328 10.0968 0.833328C10.5552 0.833328 10.9302 1.20833 10.9302 1.66666C10.9302 2.12499 10.5552 2.53333 10.0968 2.53333Z" fill="white"/>
-//         </svg>
-//       `
-//       toggle.querySelector('p').textContent='Светлая тема'
-      
-//     } else{
-//       toggle.querySelector('.theme-icon').innerHTML=`
-//        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-// 					<path d="M18.0386 13.275C17.9053 13.05 17.5303 12.7 16.5969 12.8667C16.0803 12.9583 15.5553 13 15.0303 12.975C13.0886 12.8917 11.3303 12 10.1053 10.625C9.02192 9.41666 8.35526 7.84166 8.34692 6.14166C8.34692 5.19166 8.53026 4.275 8.90526 3.40833C9.27192 2.56666 9.01359 2.125 8.83026 1.94166C8.63859 1.75 8.18859 1.48333 7.30526 1.85C3.89692 3.28333 1.78859 6.7 2.03859 10.3583C2.28859 13.8 4.70526 16.7417 7.90526 17.85C8.67192 18.1167 9.48026 18.275 10.3136 18.3083C10.4469 18.3167 10.5803 18.325 10.7136 18.325C13.5053 18.325 16.1219 17.0083 17.7719 14.7667C18.3303 13.9917 18.1803 13.5 18.0386 13.275Z" fill="#3C3C3B"/>
-// 			</svg>
-//       `
-//      toggle.querySelector('p').textContent='Темная тема'
-//     }
-    
-//   });
-// });
 
  
-
+// Темная тема
 const themeToggles = document.querySelectorAll(".theme-toggle");
 
 // Проверяем сохраненную тему при загрузке страницы
@@ -538,44 +495,59 @@ document.addEventListener("DOMContentLoaded", function () {
   const sortAlphabet = document.getElementById("sort-alphabet");
   const productsList = document.querySelector(".products-list");
 
+  // Объект для хранения текущего состояния сортировки
+  const sortState = {
+    criteria: null,
+    direction: 1 // 1 для возрастающего, -1 для убывающего
+  };
+
   function sortProducts(criteria) {
-    const productCards = Array.from(
-      productsList.querySelectorAll(".product-card")
-    );
+    const productCards = Array.from(productsList.querySelectorAll(".product-card"));
 
-    sortPopular.classList.remove("active");
-    sortPrice.classList.remove("active");
-    sortAlphabet.classList.remove("active");
+    // Если кликаем по тому же критерию, меняем направление
+    if (sortState.criteria === criteria) {
+      sortState.direction *= -1;
+    } else {
+      // Если критерий другой, сбрасываем направление
+      sortState.criteria = criteria;
+      sortState.direction = 1;
+    }
 
-    document.getElementById(`sort-${criteria}`).classList.add("active");
+    // Обновляем активные кнопки
+    sortPopular.classList.remove("active", "asc", "desc");
+    sortPrice.classList.remove("active", "asc", "desc");
+    sortAlphabet.classList.remove("active", "asc", "desc");
+
+    const activeButton = document.getElementById(`sort-${criteria}`);
+    activeButton.classList.add("active");
+    activeButton.classList.add(sortState.direction === 1 ? "asc" : "desc");
 
     productCards.sort((a, b) => {
+      let comparison = 0;
+
       switch (criteria) {
         case "price":
-          const priceA = parseInt(
-            a.querySelector(".product-price").textContent.replace(/\D/g, "")
-          );
-          const priceB = parseInt(
-            b.querySelector(".product-price").textContent.replace(/\D/g, "")
-          );
-          return priceA - priceB;
+          const priceA = parseInt(a.querySelector(".product-price").textContent.replace(/\D/g, ""));
+          const priceB = parseInt(b.querySelector(".product-price").textContent.replace(/\D/g, ""));
+          comparison = priceA - priceB;
+          break;
 
         case "alphabet":
-          const titleA = a
-            .querySelector(".product-card-title")
-            .textContent.toLowerCase();
-          const titleB = b
-            .querySelector(".product-card-title")
-            .textContent.toLowerCase();
-          return titleA.localeCompare(titleB);
+          const titleA = a.querySelector(".product-card-title").textContent.toLowerCase();
+          const titleB = b.querySelector(".product-card-title").textContent.toLowerCase();
+          comparison = titleA.localeCompare(titleB);
+          break;
 
         case "popular":
           // Здесь нужно использовать данные о популярности из базы данных
-          return 0;
+          comparison = 0;
+          break;
 
         default:
-          return 0;
+          comparison = 0;
       }
+
+      return comparison * sortState.direction;
     });
 
     productsList.innerHTML = "";
@@ -640,14 +612,7 @@ document.addEventListener("DOMContentLoaded", function () {
     subMenuArrow.classList.toggle("active");
   });
 });
-// filter buttons
-const filterButtons = document.querySelectorAll(".filter-btn");
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    button.classList.toggle("active");
-  });
-});
 
 // product-card-like
 
@@ -660,17 +625,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-//  product-card-size
 
-document.addEventListener("DOMContentLoaded", function () {
-  const productCardSizes = document.querySelectorAll(".product-card-sizes div");
-
-  productCardSizes.forEach((size) => {
-    size.addEventListener("click", function () {
-      size.classList.toggle("active");
-    });
-  });
-});
 //  product-content height
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -739,7 +694,81 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// pagination
+document.addEventListener('DOMContentLoaded', function() {
+  const productsList = document.querySelector('.products-list');
+  const products = Array.from(productsList.children);
+  const productsPerPage = 4;
+  const totalPages = Math.ceil(products.length / productsPerPage);
+  let currentPage = 1;
 
+  // Функция показа товаров текущей страницы
+  function showPage(page) {
+    // Скрываем все товары
+    products.forEach(product => {
+      product.style.display = 'none';
+    
+    });
+
+    // Показываем только товары текущей страницы
+    const startIndex = (page - 1) * productsPerPage;
+    const endIndex = Math.min(startIndex + productsPerPage, products.length);
+    
+    for (let i = startIndex; i < endIndex; i++) {
+      products[i].style.display= 'block';
+  
+    }
+  }
+
+  // Создаем пагинацию
+  function createPagination() {
+    const paginationContainer = document.querySelector('.pagination-container');
+    paginationContainer.innerHTML = '';
+
+    // Кнопка "Назад"
+    if (currentPage > 1) {
+      const prevBtn = document.createElement('button');
+      prevBtn.textContent = '←';
+      prevBtn.addEventListener('click', () => {
+        currentPage--;
+        showPage(currentPage);
+        createPagination();
+      });
+      paginationContainer.appendChild(prevBtn);
+    }
+
+    // Номера страниц
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.textContent = i;
+      if (i === currentPage) {
+        pageBtn.classList.add('active');
+      }
+      pageBtn.addEventListener('click', () => {
+        currentPage = i;
+        showPage(currentPage);
+        createPagination();
+      });
+      paginationContainer.appendChild(pageBtn);
+    }
+
+    // Кнопка "Вперед"
+    if (currentPage < totalPages) {
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = '→';
+      nextBtn.addEventListener('click', () => {
+        currentPage++;
+        showPage(currentPage);
+        createPagination();
+      });
+      paginationContainer.appendChild(nextBtn);
+    }
+  }
+
+  // Инициализация
+  showPage(1);
+  createPagination();
+});
 //  sidebar scroll
 
 document.addEventListener("DOMContentLoaded", function () {

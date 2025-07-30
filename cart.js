@@ -31,27 +31,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function initCounters() {
-    // Инициализация счетчиков для всех товаров
-    document.querySelectorAll('.counter').forEach(counter => {
-      const minus = counter.querySelector('.counter-minus');
-      const plus = counter.querySelector('.counter-plus');
-      const value = counter.querySelector('.counter-value');
-      
-      minus.addEventListener('click', () => {
-        let count = parseInt(value.textContent);
-        if (count > 1) {
-          value.textContent = --count;
-          updateCart();
-        }
-      });
-      
-      plus.addEventListener('click', () => {
-        let count = parseInt(value.textContent);
-        value.textContent = ++count;
+  document.querySelectorAll('.counter').forEach(counter => {
+    const minus = counter.querySelector('.counter-minus');
+    const plus = counter.querySelector('.counter-plus');
+    const valueInput = counter.querySelector('.counter-value'); 
+    
+    minus.addEventListener('click', () => {
+      let count = parseInt(valueInput.value) || 0; 
+      if (count > 1) {
+        valueInput.value = --count;
         updateCart();
-      });
+      }
     });
-  }
+    
+    plus.addEventListener('click', () => {
+      let count = parseInt(valueInput.value) || 0; 
+      valueInput.value = ++count;
+      updateCart();
+    });
+    
+    valueInput.addEventListener('change', () => {
+      let count = parseInt(valueInput.value) || 1;
+      if (count < 1) count = 1;
+      valueInput.value = count;
+      updateCart();
+    });
+  });
+}
+
 
   function resetCartSummary() {
     updateElementText('.cart-total-item-count', '0 товаров');
@@ -125,17 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ... (остальные функции остаются без изменений)
   function calculateTotals() {
     let totalPrice = 0;
     let totalWeight = 0;
     let itemsCount = 0;
 
-    // Учитываем только выбранные товары
     document.querySelectorAll('.cart-item.selected').forEach(item => {
       const price = parsePrice(item.querySelector('.product-price').textContent);
       const weight = parseFloat(item.querySelector('.product-card-size').textContent);
-      const quantity = parseInt(item.querySelector('.counter-value').textContent);
+      const quantity = parseInt(item.querySelector('.counter-value').value) || 1;
       
       totalPrice += price * quantity;
       totalWeight += weight * quantity;

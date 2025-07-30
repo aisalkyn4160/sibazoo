@@ -9,6 +9,7 @@
               document.documentElement.classList.add('dark-theme');
             }
         </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="styles/style.css" />
     </head>
@@ -726,6 +727,8 @@
                               <div>
                                 <span class="product-card-new">НОВИНКА</span>
                                 <span class="product-card-discount">– 21%</span>
+                                <span class="product-card-new">НОВИНКА</span>
+                                <span class="product-card-discount">– 21%</span>
                               </div>
                             </div>
                           </div>
@@ -743,11 +746,15 @@
                               </a>
                               <p class="product-card-article">Артикул: 59102656</p>
                             </div>
-                            <div class="product-card-sizes">
-                              <div class="">1 кг</div>
-                              <div class="active">2 кг</div>
-                              <div>3 кг</div>
-                              <div>4 кг</div>
+                            <div class="product-card-weight">
+                                <input type="radio" id="product1-1kg" name="product-weight" checked>
+                                <label for="product1-1kg">1 кг</label>
+                                <input type="radio" id="product1-2kg" name="product-weight">
+                                <label for="product1-2kg">2 кг</label>
+                                <input type="radio" id="product1-3kg" name="product-weight">
+                                <label for="product1-3kg">3 кг</label>
+                                <input type="radio" id="product1-4kg" name="product-weight">
+                                <label for="product1-4kg">4 кг</label>
                             </div>
                             <button class="btn product-btn">В корзину</button>
                           </div>
@@ -793,11 +800,15 @@
                               </h4></a>
                               <p class="product-card-article">Артикул: 59102656</p>
                             </div>
-                            <div class="product-card-sizes">
-                              <div class="">1 кг</div>
-                              <div class="active">2 кг</div>
-                              <div>3 кг</div>
-                              <div>4 кг</div>
+                            <div class="product-card-weight">
+                                <input type="radio" id="product2-1kg" name="product-weight">
+                                <label for="product2-1kg">1 кг</label>
+                                <input type="radio" id="product2-2kg" name="product-weight">
+                                <label for="product2-2kg">2 кг</label>
+                                <input type="radio" id="product2-3kg" name="product-weight">
+                                <label for="product2-3kg">3 кг</label>
+                                <input type="radio" id="product2-4kg" name="product-weight">
+                                <label for="product2-4kg">4 кг</label>
                             </div>
                             <button class="btn product-btn">В корзину</button>
                           </div>
@@ -843,11 +854,15 @@
                               </h4>
                               <p class="product-card-article">Артикул: 59102656</p>
                             </div>
-                            <div class="product-card-sizes">
-                              <div class="">1 кг</div>
-                              <div class="active">2 кг</div>
-                              <div>3 кг</div>
-                              <div>4 кг</div>
+                            <div class="product-card-weight">
+                                <input type="radio" id="product3-1kg" name="product-weight">
+                                <label for="product3-1kg">1 кг</label>
+                                <input type="radio" id="product3-2kg" name="product-weight">
+                                <label for="product3-2kg">2 кг</label>
+                                <input type="radio" id="product3-3kg" name="product-weight">
+                                <label for="product3-3kg">3 кг</label>
+                                <input type="radio" id="product3-4kg" name="product-weight">
+                                <label for="product3-4kg">4 кг</label>
                             </div>
                             <button class="btn product-btn">В корзину</button>
                           </div>
@@ -893,11 +908,15 @@
                               </h4>
                               <p class="product-card-article">Артикул: 59102656</p>
                             </div>
-                            <div class="product-card-sizes">
-                              <div class="">1 кг</div>
-                              <div class="active">2 кг</div>
-                              <div>3 кг</div>
-                              <div>4 кг</div>
+                            <div class="product-card-weight">
+                                <input type="radio" id="product4-1kg" name="product-weight">
+                                <label for="product4-1kg">1 кг</label>
+                                <input type="radio" id="product4-2kg" name="product-weight">
+                                <label for="product4-2kg">2 кг</label>
+                                <input type="radio" id="product4-3kg" name="product-weight">
+                                <label for="product4-3kg">3 кг</label>
+                                <input type="radio" id="product4-4kg" name="product-weight">
+                                <label for="product4-4kg">4 кг</label>
                             </div>
                             <button class="btn product-btn">В корзину</button>
                           </div>
@@ -1084,7 +1103,7 @@
                         <p>Классные.Очень просты в использовании. И без проблем легко отрезают коготь Классные.Очень просты в использовании. И без проблем легко отрезают коготь</p>
                         <div class="review-bottom">
                             <div class="review-ic">
-                                <video class="review-video">
+                                <video class="review-video" data-fancybox="image" data-src="./assets/video/video.mp4">
                                     <source src="./assets/video/video.mp4" type="video/mp4"/>
                                 </video>
                                 <div class="custom-controls">                       
@@ -1439,6 +1458,11 @@
           </form>
         </div>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.min.js"></script>
+      <script>
+        Fancybox.bind("[data-fancybox]", {
+        });
+      </script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
       <script src="script.js"></script>
   </body>

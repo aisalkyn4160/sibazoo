@@ -24,7 +24,6 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: 0;
     color: #3C3C3B;
     margin-bottom: 8px;
     display: flex;
@@ -40,7 +39,6 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
-    letter-spacing: 0%;
     margin-bottom: 20px;
 }
 .review-bottom{
@@ -132,7 +130,6 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: 0%;
     color: #3C3C3B;
     text-align: center;
     padding-bottom: 20px;

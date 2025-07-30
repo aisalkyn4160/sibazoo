@@ -675,7 +675,7 @@
 				<div class="breadcrumbs">
 					<a href="index.html" class="breadcrumb-item">Главная</a>
 					<span></span>
-					<a href="#" class="breadcrumb-item active">Личный кабинет</a>
+					<a href="javascript:void(0)" class="breadcrumb-item active">Личный кабинет</a>
 				</div>
 			</div>
 			<section class="'profile">
@@ -1083,7 +1083,7 @@
 													<div class="cart-item-counter">
 														<div class="counter">
 															<span class="counter-minus">-</span>
-															<span class="counter-value">1</span>
+															<input type="number" value="1" class="counter-value">
 															<span class="counter-plus">+</span>
 														</div>
 														<button class="cart-item-remove">
@@ -1128,7 +1128,7 @@
 													<div class="cart-item-counter">
 														<div class="counter">
 															<span class="counter-minus">-</span>
-															<span class="counter-value">1</span>
+															<input type="number" value="1" class="counter-value">
 															<span class="counter-plus">+</span>
 														</div>
 														<button class="cart-item-remove">
@@ -1173,7 +1173,7 @@
 													<div class="cart-item-counter">
 														<div class="counter">
 															<span class="counter-minus">-</span>
-															<span class="counter-value">1</span>
+															<input type="number" value="1" class="counter-value">
 															<span class="counter-plus">+</span>
 														</div>
 														<button class="cart-item-remove">
@@ -1263,15 +1263,19 @@
 												<div class="cart-total-payment">
 													<h4>Способ оплаты</h4>
 													<div class="cart-total-payment-method">
-														<div class="active">Картой онлайн</div>
-														<div>Наличными при получении</div>
+														<input type="radio" id="payment-card" name="payment-method">
+														<label for="payment-card">Картой онлайн</label>
+														<input type="radio" id="payment-cash" name="payment-method">
+														<label for="payment-cash">Наличными при получении</label>
 													</div>
 												</div>
 												<div class="cart-total-delivery">
 													<h4>Способ доставки</h4>
 													<div class="cart-total-delivery-method">
-														<div>Курьером</div>
-														<div class="active">Самовывоз</div>
+														<input type="radio" id="delivery-courier" name="delivery-method">
+														<label for="delivery-courier">Курьером</label>
+														<input type="radio" id="delivery-self" name="delivery-method">
+														<label for="delivery-self">Самовывоз</label>
 													</div>
 												</div>
 										</div>

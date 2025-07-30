@@ -20,7 +20,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 32px;
+  padding: 30px 30px 25px;
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -49,6 +49,8 @@
   color: #fff;
   text-transform: uppercase;
   margin-right: 8px;
+  margin-bottom: 5px;
+  display: inline-block;
 }
 .product-card-discount {
   background: #90c8e8;
@@ -69,14 +71,12 @@
     font-style: Bold;
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: 0%;
     color: #FFA0A0;
 }
 .product-price-old{
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    letter-spacing: 0%;
     text-decoration: line-through;
 }
 .product-card-title{
@@ -89,13 +89,13 @@
 .product-card-article{
     margin-bottom: 20px;
 }
-.product-card-sizes{
+.product-card-weight{
     display: flex;
     align-items: center;
     gap: 4px;
     margin-bottom: 16px;
 }
-.product-card-sizes div{
+.product-card-weight label{
     background: #FAF9F6;
     padding: 4px 6px;
     border-radius: 40px;
@@ -103,13 +103,14 @@
     font-style: Bold;
     font-size: 12px;
     line-height: 14px;
-    letter-spacing: 0%;
     text-transform: uppercase;
     color: #D3CBC4;
     cursor: pointer;
 }
-
-.product-card-sizes div.active{
+.product-card-weight input[type="radio"]{
+    display: none;
+}
+.product-card-weight input[type="radio"]:checked + label{
     background: #FFA0A0;
     color: #fff;
 }
@@ -120,10 +121,10 @@
 .dark-theme .product-card{
     background-color: #3C3C3B;
 }
-.dark-theme .product-card-sizes div{
+.dark-theme .product-card-weight label{
   background-color: #2D2D2D;
 }
-.dark-theme .product-card-sizes div.active{
+.dark-theme .product-card-weight input[type="radio"]:checked + label{
   background-color: #FFA0A0;
 }
 @media (max-width: 576px){

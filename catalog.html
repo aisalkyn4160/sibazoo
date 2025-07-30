@@ -682,7 +682,7 @@
             <a href="#" class="breadcrumb-item">Кошки</a>
             <span>
             </span>
-            <a href="#" class="breadcrumb-item active">Корма сухие</a>
+            <a href="javascript:void(0)" class="breadcrumb-item active">Корма сухие</a>
           </div>
         </div>
         <section class="category">
@@ -745,8 +745,10 @@
                       <div class="filter-section">
                           <h4>Состав</h4>
                           <div class="filter-options">
-                            <button class="filter-btn active">Интрадианты</button>
-                            <button class="filter-btn">Корм</button>
+                            <input type="checkbox" id="intradients">
+                            <label for="intradients">Интрадианты</label>
+                            <input type="checkbox" id="korm">
+                            <label for="korm">Корм</label>
                           </div>
                         </div>
                         <div class="filter-section">
@@ -770,22 +772,33 @@
                         <div class="filter-section">
                           <h4>Вес корма</h4>
                           <div class="filter-options">
-                            <button class="filter-btn">1 кг</button>
-                            <button class="filter-btn">2 кг</button>
-                            <button class="filter-btn">3 кг</button>
-                            <button class="filter-btn">4 кг</button>
+                            <input type="radio" id="weight-1" name="weight" checked>
+                            <label for="weight-1">1 кг</label>
+                            <input type="radio" id="weight-2" name="weight">
+                            <label for="weight-2">2 кг</label>
+                            <input type="radio" id="weight-3" name="weight">
+                            <label for="weight-3">3 кг</label>
+                            <input type="radio" id="weight-4" name="weight">
+                            <label for="weight-4">4 кг</label>
                           </div>
                         </div>
                         <div class="filter-section">
                           <h4>Фильтры</h4>
                           <div class="filter-options">
-                            <button class="filter-btn">Аллергия на курицу</button>
-                            <button class="filter-btn">Аллергия пищевая</button>
-                            <button class="filter-btn">Заболевания мочеполовой системы</button>
-                            <button class="filter-btn">Заболевания почек</button>
-                            <button class="filter-btn">Заболевания печени</button>
-                            <button class="filter-btn active">Лишний вес</button>
-                            <button class="filter-btn active">Диабет</button>
+                            <input type="checkbox" id="filter-1">
+                            <label for="filter-1">Аллергия на курицу</label>
+                            <input type="checkbox" id="filter-2">
+                            <label for="filter-2">Аллергия пищевая</label>
+                            <input type="checkbox" id="filter-3">
+                            <label for="filter-3">Заболевания мочеполовой системы</label>
+                            <input type="checkbox" id="filter-4">
+                            <label for="filter-4">Заболевания почек</label>
+                            <input type="checkbox" id="filter-5">
+                            <label for="filter-5">Заболевания печени</label>
+                            <input type="checkbox" id="filter-6">
+                            <label for="filter-6">Лишний вес</label>
+                            <input type="checkbox" id="filter-7">
+                            <label for="filter-7">Диабет</label>
                           </div>
                         </div>
                     </div>
@@ -892,7 +905,7 @@
                         <li class="has-sub-menu">
                           <a href="#">
                             <img src="./assets/icons/золотая рыбка 1.svg" alt="">
-                            Аквариумистика
+                            Аквариумистика Аквариумистика Аквариумистика
                           </a>
                           <span class="sub-menu-arrow">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -953,11 +966,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                           </div>
-                          <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product1-1kg" name="product-weight" checked>
+                            <label for="product1-1kg">1 кг</label>
+                            <input type="radio" id="product1-2kg" name="product-weight">
+                            <label for="product1-2kg">2 кг</label>
+                            <input type="radio" id="product1-3kg" name="product-weight">
+                            <label for="product1-3kg">3 кг</label>
+                            <input type="radio" id="product1-4kg" name="product-weight">
+                            <label for="product1-4kg">4 кг</label>
                           </div>
                           <button class="btn product-btn">В корзину</button>
                         </div>
@@ -1003,11 +1020,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                           </div>
-                          <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product2-1kg" name="product-weight">
+                            <label for="product2-1kg">1 кг</label>
+                            <input type="radio" id="product2-2kg" name="product-weight">
+                            <label for="product2-2kg">2 кг</label>
+                            <input type="radio" id="product2-3kg" name="product-weight">
+                            <label for="product2-3kg">3 кг</label>
+                            <input type="radio" id="product2-4kg" name="product-weight">
+                            <label for="product2-4kg">4 кг</label>
                           </div>
                           <button class="btn product-btn">В корзину</button>
                         </div>
@@ -1053,11 +1074,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                           </div>
-                          <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product3-1kg" name="product-weight">
+                            <label for="product3-1kg">1 кг</label>
+                            <input type="radio" id="product3-2kg" name="product-weight">
+                            <label for="product3-2kg">2 кг</label>
+                            <input type="radio" id="product3-3kg" name="product-weight">
+                            <label for="product3-3kg">3 кг</label>
+                            <input type="radio" id="product3-4kg" name="product-weight">
+                            <label for="product3-4kg">4 кг</label>
                           </div>
                           <button class="btn product-btn">В корзину</button>
                         </div>
@@ -1103,16 +1128,345 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                           </div>
-                          <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product4-1kg" name="product-weight" >
+                            <label for="product4-1kg">1 кг</label>
+                            <input type="radio" id="product4-2kg" name="product-weight">
+                            <label for="product4-2kg">2 кг</label>
+                            <input type="radio" id="product4-3kg" name="product-weight">
+                            <label for="product4-3kg">3 кг</label>
+                            <input type="radio" id="product4-4kg" name="product-weight">
+                            <label for="product4-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 400 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              А Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product1-1kg" name="product-weight" checked>
+                            <label for="product1-1kg">1 кг</label>
+                            <input type="radio" id="product1-2kg" name="product-weight">
+                            <label for="product1-2kg">2 кг</label>
+                            <input type="radio" id="product1-3kg" name="product-weight">
+                            <label for="product1-3kg">3 кг</label>
+                            <input type="radio" id="product1-4kg" name="product-weight">
+                            <label for="product1-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 500 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product2-1kg" name="product-weight">
+                            <label for="product2-1kg">1 кг</label>
+                            <input type="radio" id="product2-2kg" name="product-weight">
+                            <label for="product2-2kg">2 кг</label>
+                            <input type="radio" id="product2-3kg" name="product-weight">
+                            <label for="product2-3kg">3 кг</label>
+                            <input type="radio" id="product2-4kg" name="product-weight">
+                            <label for="product2-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 100 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              С Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product3-1kg" name="product-weight">
+                            <label for="product3-1kg">1 кг</label>
+                            <input type="radio" id="product3-2kg" name="product-weight">
+                            <label for="product3-2kg">2 кг</label>
+                            <input type="radio" id="product3-3kg" name="product-weight">
+                            <label for="product3-3kg">3 кг</label>
+                            <input type="radio" id="product3-4kg" name="product-weight">
+                            <label for="product3-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 600 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              Г Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product4-1kg" name="product-weight" >
+                            <label for="product4-1kg">1 кг</label>
+                            <input type="radio" id="product4-2kg" name="product-weight">
+                            <label for="product4-2kg">2 кг</label>
+                            <input type="radio" id="product4-3kg" name="product-weight">
+                            <label for="product4-3kg">3 кг</label>
+                            <input type="radio" id="product4-4kg" name="product-weight">
+                            <label for="product4-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 400 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              А Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product1-1kg" name="product-weight" checked>
+                            <label for="product1-1kg">1 кг</label>
+                            <input type="radio" id="product1-2kg" name="product-weight">
+                            <label for="product1-2kg">2 кг</label>
+                            <input type="radio" id="product1-3kg" name="product-weight">
+                            <label for="product1-3kg">3 кг</label>
+                            <input type="radio" id="product1-4kg" name="product-weight">
+                            <label for="product1-4kg">4 кг</label>
+                          </div>
+                          <button class="btn product-btn">В корзину</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="product-card-img">
+                          <img src="./assets/imgs/product-card.jpg" alt="" />
+                          <div class="product-card-labels">
+                            <span class="product-card-like">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
+                                  stroke="#3C3C3B"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                            <div>
+                              <span class="product-card-new">НОВИНКА</span>
+                              <span class="product-card-discount">– 21%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="product-card-info">
+                          <div class="product-prices">
+                            <span class="product-price">2 500 ₽</span>
+                            <span class="product-price-old">3 500 ₽</span>
+                          </div>
+                          <div>
+                            <a href="/product.html">
+                              <h4 class="product-card-title">
+                              Корм сухой для кошек ROYAL CANIN Urinary Care 2кг
+                              для профилактики мочекаменной болезни
+                            </h4>
+                            </a>
+                            <p class="product-card-article">Артикул: 59102656</p>
+                          </div>
+                          <div class="product-card-weight">
+                            <input type="radio" id="product2-1kg" name="product-weight">
+                            <label for="product2-1kg">1 кг</label>
+                            <input type="radio" id="product2-2kg" name="product-weight">
+                            <label for="product2-2kg">2 кг</label>
+                            <input type="radio" id="product2-3kg" name="product-weight">
+                            <label for="product2-3kg">3 кг</label>
+                            <input type="radio" id="product2-4kg" name="product-weight">
+                            <label for="product2-4kg">4 кг</label>
                           </div>
                           <button class="btn product-btn">В корзину</button>
                         </div>
                       </div>
                     </div>
+                    <div class="pagination-container"></div>
                   </div>
               </div>
             </div>
@@ -1143,8 +1497,8 @@
                                 </svg>
                             </span>
                         	<div>
-								<span class="product-card-new">НОВИНКА</span>
-								<span class="product-card-discount">– 21%</span>
+                            <span class="product-card-new">НОВИНКА</span>
+                            <span class="product-card-discount">– 21%</span>
                             </div>
                         </div>
                     </div>
@@ -1159,11 +1513,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                         </div>
-                        <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                       <div class="product-card-weight">
+                          <input type="radio" id="product5-1kg" name="product-weight" >
+                          <label for="product5-1kg">1 кг</label>
+                          <input type="radio" id="product5-2kg" name="product-weight">
+                          <label for="product5-2kg">2 кг</label>
+                          <input type="radio" id="product5-3kg" name="product-weight">
+                          <label for="product5-3kg">3 кг</label>
+                          <input type="radio" id="product5-4kg" name="product-weight">
+                          <label for="product5-4kg">4 кг</label>
                         </div>
                         <button class="btn product-btn">В корзину</button>
                     </div>
@@ -1206,11 +1564,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                         </div>
-                        <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                        <div class="product-card-weight">
+                          <input type="radio" id="product6-1kg" name="product-weight" >
+                          <label for="product6-1kg">1 кг</label>
+                          <input type="radio" id="product6-2kg" name="product-weight">
+                          <label for="product6-2kg">2 кг</label>
+                          <input type="radio" id="product6-3kg" name="product-weight">
+                          <label for="product6-3kg">3 кг</label>
+                          <input type="radio" id="product6-4kg" name="product-weight">
+                          <label for="product6-4kg">4 кг</label>
                         </div>
                         <button class="btn product-btn">В корзину</button>
                     </div>
@@ -1253,11 +1615,15 @@
                             </a>
                             <p class="product-card-article">Артикул: 59102656</p>
                         </div>
-                        <div class="product-card-sizes">
-                            <div class="">1 кг</div>
-                            <div class="active">2 кг</div>
-                            <div>3 кг</div>
-                            <div>4 кг</div>
+                        <div class="product-card-weight">
+                          <input type="radio" id="product7-1kg" name="product-weight" >
+                          <label for="product7-1kg">1 кг</label>
+                          <input type="radio" id="product7-2kg" name="product-weight">
+                          <label for="product172kg">2 кг</label>
+                          <input type="radio" id="product7-3kg" name="product-weight">
+                          <label for="product7-3kg">3 кг</label>
+                          <input type="radio" id="product7-4kg" name="product-weight">
+                          <label for="product7-4kg">4 кг</label>
                         </div>
                         <button class="btn product-btn">В корзину</button>
                     </div>

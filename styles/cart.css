@@ -167,7 +167,16 @@
     cursor: pointer;
     font-size: 20px;
 }
-
+.counter input{
+    width: 100%;
+    text-align: center;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #3C3C3B;
+}
 .cart-item-remove{
     width: 40px;
     height: 40px;
@@ -231,8 +240,12 @@
     gap: 12px;
     margin-top: 10px;
 }
-.cart-total-payment-method div,
-.cart-total-delivery-method div{
+.cart-total-payment-method input,
+.cart-total-delivery-method input{
+    display: none;
+}
+.cart-total-payment-method label,
+.cart-total-delivery-method label{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -246,8 +259,8 @@
     cursor: pointer;
     font-size: 14px;
 }
-.cart-total-payment-method div.active,
-.cart-total-delivery-method div.active{
+.cart-total-payment-method input:checked + label,
+.cart-total-delivery-method input:checked + label{
     background: #FFA0A0;
     color: #FFF;
 }
@@ -363,13 +376,13 @@
 input[type='datetime']{
     text-align: center;
 } 
-.dark-theme .cart-total-payment-method div, 
-.dark-theme .cart-total-delivery-method div{
+.dark-theme .cart-total-payment-method label, 
+.dark-theme .cart-total-delivery-method label{
     background: #2D2D2D;
     color: #ECECEC;
 }
-.dark-theme .cart-total-payment-method div.active, 
-.dark-theme .cart-total-delivery-method div.active{
+.dark-theme .cart-total-payment-method input:checked + label, 
+.dark-theme .cart-total-delivery-method input:checked + label{
     background: #FFA0A0;
     color: #FFF;
 }

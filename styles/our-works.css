@@ -26,7 +26,6 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: 0%;
     color: #3C3C3B;
 }
 .sidebar-nav > ul > li > a > span{
@@ -92,7 +91,6 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-    letter-spacing: 0%;
     color: #3C3C3B;
     margin-top: 20px;
 }

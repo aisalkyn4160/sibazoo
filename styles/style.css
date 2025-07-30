@@ -168,14 +168,12 @@ h4{
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 20px;
-	letter-spacing: 0%;
 	color: #2C2C2C;
 }
 h6{
 	font-weight: 800;
 	font-size: 14px;
 	line-height: 16px;
-	letter-spacing: 0%;
 	color: #3C3C3B;
 }
 .container{
@@ -198,7 +196,7 @@ h6{
 	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
-	bottom: 180px;
+	bottom: 115px;
 	width: 675px;
 	padding: 20px 40px;
 	border-radius: 16px;
@@ -276,17 +274,21 @@ h6{
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 16px;
-	letter-spacing: 0%;
 	padding: 20px 0;
 }
 .breadcrumb-item.active{
 	color: #3C3C3B;
+	cursor: context-menu;
 }
 .breadcrumbs span{
 	width: 3px;
 	height: 3px;
 	border-radius: 50%;
 	background-color: rgba(44, 44, 44, 0.45);
+}
+
+.dark-theme .breadcrumbs a{
+	color: #3C3C3B;
 }
 .dark-theme .breadcrumbs span{
 	background-color: rgba(255, 255, 255, 0.45);
@@ -305,6 +307,9 @@ h6{
 }
 
 @media (max-width: 576px){
+	.tooltip{
+		bottom: 8px;
+	}
 	.tooltip-logo{
 		display: none;
 	}
