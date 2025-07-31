@@ -1025,120 +1025,152 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Добавление питомца
-
 document.addEventListener('DOMContentLoaded', function() {
+  // Элементы формы
   const petForm = document.querySelector('.pet-filters-form');
+  const petBirthdayInput = document.getElementById('pet-birthday');
   const yourPetsInfo = document.querySelector('.your-pets-info');
-  const petFiltersBtn = document.querySelector('.btn.pet-filters-btn');
-  const petsData =document.getElementById('pets-data');
+  const petsData = document.getElementById('pets-data');
+  const closeBtn = document.querySelector('.register-close');
 
+  // Сообщения об ошибках
+  const errorMessages = {
+    day: 'День должен быть от 1 до 31',
+    month: 'Месяц должен быть от 1 до 12',
+    year: `Год должен быть от 2000 до ${new Date().getFullYear()}`,
+    format: 'Используйте формат: дд-мм-гггг',
+    gender: 'Выберите пол питомца'
+  };
 
+  // Валидация даты
+  function validateDate(dateStr) {
+    if (!dateStr || dateStr.length !== 10) return { valid: false, error: errorMessages.format };
+    
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return { valid: false, error: errorMessages.format };
 
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const year = parseInt(parts[2], 10);
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      return { valid: false, error: errorMessages.format };
+    }
+
+    if (year < 2000 || year > new Date().getFullYear()) {
+      return { valid: false, error: errorMessages.year };
+    }
+
+    if (month < 1 || month > 12) return { valid: false, error: errorMessages.month };
+
+    const lastDay = new Date(year, month, 0).getDate();
+    if (day < 1 || day > lastDay) return { valid: false, error: errorMessages.day };
+
+    return { valid: true };
+  }
+
+  // Обработчик ввода даты
+  petBirthdayInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    
+    if (value.length > 2) value = `${value.slice(0, 2)}-${value.slice(2)}`;
+    if (value.length > 5) value = `${value.slice(0, 5)}-${value.slice(5, 9)}`;
+    
+    e.target.value = value;
+  });
+
+  function showError(message) {
+      const errorContainer = document.querySelector('.error-container-birthday');
+      errorContainer.textContent = message;
+      errorContainer.style.display = 'block';
+      
+      // Автоматическое скрытие через 5 секунд
+      setTimeout(() => {
+        errorContainer.style.display = 'none';
+      }, 5000);
+    }
+
+    function showGenderError(message) {
+      const errorContainer = document.querySelector('.error-container-gender');
+      errorContainer.textContent = message;
+      errorContainer.style.display = 'block';
+      
+      // Автоматическое скрытие через 5 секунд
+      setTimeout(() => {
+        errorContainer.style.display = 'none';
+      }, 5000);
+    }
   // Обработчик отправки формы
   petForm.addEventListener('submit', function(e) {
     e.preventDefault();
-     
-    petsData.style.opacity = '0';
-    petsData.style.visibility = 'hidden';
-    document.body.classList.remove('no-scroll');
+    console.log('Форма отправлена'); // Отладочное сообщение
+    
+     // Очищаем предыдущие ошибки
+    showError('')
+    // Валидация даты
+    const dateValidation = validateDate(petBirthdayInput.value);
+  if (!dateValidation.valid) {
+    showError(dateValidation.error);
+    petBirthdayInput.focus();
+    return;
+  }
   
-    // Проверка выбранного пола
-    const genderRadio = document.querySelector('input[name="radio-group"]:checked');
-    if (!genderRadio) {
-      alert('Пожалуйста, выберите пол питомца');
-      return;
-    }
-    
-    // Собираем данные из формы
-    const petType = document.querySelector('.pet-filters-item .custom-select-trigger').textContent;
-    const breed = document.querySelectorAll('.pet-filters-item .custom-select-trigger')[1].textContent;
-    const name = document.getElementById('pet-name').value || 'Не указано';
-    const birthday = document.getElementById('pet-birthday').value || 'Не указано';
-    const weight = document.getElementById('pet-weight').value || '0';
-    const gender = genderRadio.nextElementSibling.nextElementSibling.textContent;
-    const castration = document.getElementById('castration').checked ? 'Да' : 'Нет';
-    const wetRation = document.getElementById('wet-ration').checked ? 'Влажный' : '';
-    const dryRation = document.getElementById('dry-ration').checked ? 'Сухой' : '';
-    const rations = [wetRation, dryRation].filter(Boolean).join(',') || 'Не указано';
-    
-    // Создаем объект с данными питомца
+  // Валидация пола
+  const genderRadio = document.querySelector('input[name="radio-group"]:checked');
+  if (!genderRadio) {
+    showGenderError(errorMessages.gender);
+    return;
+  }
+
+    // Сбор данных
     const petData = {
-      type: petType,
-      breed: breed,
-      name: name,
-      birthday: birthday,
-      weight: weight,
-      gender: gender,
-      castration: castration,
-      ration: rations,
-      avatar: './assets/icons/user_icon.png' // дефолтный аватар
+      type: document.querySelector('.pet-filters-item .custom-select-trigger').textContent,
+      breed: document.querySelectorAll('.pet-filters-item .custom-select-trigger')[1].textContent,
+      name: document.getElementById('pet-name').value || 'Не указано',
+      birthday: petBirthdayInput.value,
+      weight: document.getElementById('pet-weight').value || '0',
+      gender: genderRadio.nextElementSibling.nextElementSibling.textContent,
+      castration: document.getElementById('castration').checked ? 'Да' : 'Нет',
+      ration: [
+        document.getElementById('wet-ration').checked ? 'Влажный' : '',
+        document.getElementById('dry-ration').checked ? 'Сухой' : ''
+      ].filter(Boolean).join(', ') || 'Не указано',
+      avatar: './assets/icons/user_icon.png'
     };
-    
-    // Сохраняем данные
-    savePetData(petData);
-    
-    // Создаем и отображаем карточку
-    displayPetCard(petData);
-    
-    
-    // Очищаем форму
-    petForm.reset();
-  });
-  
-  
-  // Обработчик для кнопки закрытия
-  document.querySelector('.register-close').addEventListener('click', function() {
-    document.querySelector('.pet-filters').style.display = 'none';
-  });
-  
-  // Обработчик для кнопки редактирования аватара
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.edit-avatar-btn')) {
-      e.target.closest('.profile-avatar').querySelector('input[type="file"]').click();
-    }
-  });
-  
-  // Обработчик загрузки аватара
-  document.addEventListener('change', function(e) {
-    if (e.target.matches('input[type="file"]')) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          const avatar = e.target.closest('.profile-avatar').querySelector('img');
-          avatar.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-  });
-  
-  // Функция сохранения данных
-  function savePetData(petData) {
+
+    console.log('Собранные данные:', petData); // Отладочное сообщение
+
+    // Сохранение данных
     let pets = JSON.parse(localStorage.getItem('pets')) || [];
     pets.push(petData);
     localStorage.setItem('pets', JSON.stringify(pets));
-  }
-  
+    console.log('Данные сохранены в localStorage'); // Отладочное сообщение
+
+    // Отображение карточки
+    displayPetCard(petData);
+    
+    // Закрытие формы
+    petsData.style.opacity = '0';
+    petsData.style.visibility = 'hidden';
+    document.body.classList.remove('no-scroll');
+    petForm.reset();
+  });
+
   // Функция отображения карточки
   function displayPetCard(petData) {
+    console.log('Создание карточки для:', petData); // Отладочное сообщение
+    
     const petCard = document.createElement('div');
     petCard.className = 'pet-card';
     petCard.innerHTML = `
       <div class="profile-avatar">
-        <img src="${petData.avatar}" id="pet-avatar" class="avatar-image" alt="Аватар">
+        <img src="${petData.avatar}" class="avatar-image" alt="Аватар">
         <button class="edit-avatar-btn pet-edit-btn">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="#FFA0A0"/>
-											<rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="white"/>
-											<path d="M14.5 15H5.5C5.295 15 5.125 14.83 5.125 14.625C5.125 14.42 5.295 14.25 5.5 14.25H14.5C14.705 14.25 14.875 14.42 14.875 14.625C14.875 14.83 14.705 15 14.5 15Z" fill="white"/>
-											<path d="M13.5103 5.74002C12.5403 4.77002 11.5903 4.74502 10.5953 5.74002L9.99028 6.34502C9.94028 6.39502 9.92028 6.47502 9.94028 6.54502C10.3203 7.87002 11.3803 8.93002 12.7053 9.31002C12.7253 9.31502 12.7453 9.32002 12.7653 9.32002C12.8203 9.32002 12.8703 9.30002 12.9103 9.26002L13.5103 8.65502C14.0053 8.16502 14.2453 7.69002 14.2453 7.21002C14.2503 6.71502 14.0103 6.23502 13.5103 5.74002Z" fill="white"/>
-											<path d="M11.8052 9.76502C11.6602 9.69502 11.5202 9.62502 11.3852 9.54502C11.2752 9.48002 11.1702 9.41002 11.0652 9.33502C10.9802 9.28002 10.8802 9.20002 10.7852 9.12002C10.7752 9.11502 10.7402 9.08502 10.7002 9.04502C10.5352 8.90502 10.3502 8.72502 10.1852 8.52502C10.1702 8.51502 10.1452 8.48002 10.1102 8.43502C10.0602 8.37502 9.97516 8.27502 9.90016 8.16002C9.84016 8.08502 9.77016 7.97502 9.70516 7.86502C9.62516 7.73002 9.55516 7.59502 9.48516 7.45502C9.39338 7.25835 9.13525 7.19993 8.98179 7.35339L6.17016 10.165C6.10516 10.23 6.04516 10.355 6.03016 10.44L5.76016 12.355C5.71016 12.695 5.80516 13.015 6.01516 13.23C6.19516 13.405 6.44516 13.5 6.71516 13.5C6.77516 13.5 6.83516 13.495 6.89516 13.485L8.81516 13.215C8.90516 13.2 9.03016 13.14 9.09016 13.075L11.9064 10.2588C12.0568 10.1084 12.0003 9.84959 11.8052 9.76502Z" fill="white"/>
-					</svg>
+          <!-- SVG иконка -->
         </button>
         <input type="file" accept="image/*" hidden>
       </div>
-      <div class="pet-info-items">
+       <div class="pet-info-items">
         <div class="pet-name profile-info-item">
           <span>Имя</span>
           <span class="pet-name-value">${petData.name}</span>
@@ -1182,56 +1214,32 @@ document.addEventListener('DOMContentLoaded', function() {
       yourPetsInfo.innerHTML = '';
     }
 
-      yourPetsInfo.appendChild(petCard);
-    }
-    
- 
- 
-
- 
-  // Загрузка сохраненных питомцев при старте
-  const savedPets = JSON.parse(localStorage.getItem('pets')) || [];
-  if (savedPets.length > 0) {
-    yourPetsInfo.innerHTML = '';
-    savedPets.forEach(pet => displayPetCard(pet));
+    yourPetsInfo.appendChild(petCard);
+    console.log('Карточка добавлена в DOM'); // Отладочное сообщение
   }
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  const petBirthdayInput = document.getElementById('pet-birthday');
-
-  petBirthdayInput.addEventListener('input', function(e) {
-    // Удаляем все нецифровые символы
-    let value = e.target.value.replace(/\D/g, '');
-    
-    // Добавляем дефисы после 2-й и 4-й цифры
-    if (value.length > 2) {
-      value = value.substring(0, 2) + '-' + value.substring(2);
-    }
-    if (value.length > 5) {
-      value = value.substring(0, 5) + '-' + value.substring(5, 9); // Ограничиваем год до 4 цифр
-    }
-    
-    // Обрезаем лишние символы (если введено больше 8 цифр)
-    if (value.length > 10) {
-      value = value.substring(0, 10);
-    }
-    
-    e.target.value = value;
+  // Закрытие формы
+  closeBtn.addEventListener('click', function() {
+    petsData.style.opacity = '0';
+    petsData.style.visibility = 'hidden';
+    document.body.classList.remove('no-scroll');
   });
 
-  // Обработчик для клавиши Backspace (чтобы можно было удалять дефисы)
-  petBirthdayInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Backspace' && (e.target.value.length === 3 || e.target.value.length === 6)) {
-      e.preventDefault();
-      const newValue = e.target.value.substring(0, e.target.value.length - 1);
-      e.target.value = newValue;
+  // Загрузка сохраненных питомцев
+  function loadPets() {
+    const savedPets = JSON.parse(localStorage.getItem('pets')) || [];
+    console.log('Загружено питомцев:', savedPets.length); // Отладочное сообщение
+    
+    if (savedPets.length > 0) {
+      yourPetsInfo.innerHTML = '';
+      savedPets.forEach(pet => displayPetCard(pet));
     }
-  });
+  }
+
+  // Инициализация
+  loadPets();
 });
 
-
-// Выберити период автозаказа 
 
 document.addEventListener('DOMContentLoaded', function() {
   // Получаем текущий год

@@ -1841,12 +1841,13 @@
 				<div class="pet-filters-item">
 					<label for="pet-birthday">Дата рождения</label>
 					<input type="text" id="pet-birthday" placeholder="__-__-__">
+					<div class="error-container-birthday" style="color: red; margin: 10px 0; font-size: 12px"></div>
 				</div>
 				<div class="pet-filters-item">
 					<label for="pet-weight">Вес</label>
 					<input type="text" id="pet-weight" placeholder="Сколько весит">
 				</div>
-				<div class="pet-filters-item">
+				<div class="pet-filters-item" id="pet-gender-wrapper">
 					<label for="">Пол питомца</label>
 					<label class="custom-radio">
 						<input type="radio" name="radio-group">
@@ -1858,6 +1859,7 @@
 						<span class="radio-icon"></span>
 						<span class="radio-text">Девочка</span>
 					</label>
+					<div class="error-container-gender" style="color: red; margin: 10px 0; font-size: 12px"></div>
 				</div>
 				<div class="castration-checkbox">
 					<input type="checkbox" id="castration">
