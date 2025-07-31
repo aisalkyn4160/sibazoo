@@ -55,6 +55,16 @@
     color: #3C3C3B;
     margin-bottom: 8px;
 }
+.cart-total-input{
+    position: relative;
+}
+.error-message{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: red;
+    font-size: 12px;
+}
 .cart-total-input  input{
     width: 100%;
     padding: 16px;
@@ -62,6 +72,7 @@
     border-radius: 16px;
 
 }
+
 .cart-total-input div{
     display: flex;
     justify-content: space-between;

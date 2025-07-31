@@ -1057,8 +1057,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const weight = document.getElementById('pet-weight').value || '0';
     const gender = genderRadio.nextElementSibling.nextElementSibling.textContent;
     const castration = document.getElementById('castration').checked ? 'Да' : 'Нет';
-    const rationButtons = document.querySelectorAll('.rations .btn.active');
-    const rations = Array.from(rationButtons).map(btn => btn.textContent).join('</br> ') || 'Не указано';
+    const wetRation = document.getElementById('wet-ration').checked ? 'Влажный' : '';
+    const dryRation = document.getElementById('dry-ration').checked ? 'Сухой' : '';
+    const rations = [wetRation, dryRation].filter(Boolean).join(',') || 'Не указано';
     
     // Создаем объект с данными питомца
     const petData = {
@@ -1084,13 +1085,6 @@ document.addEventListener('DOMContentLoaded', function() {
     petForm.reset();
   });
   
-  // Обработчики для кнопок рациона
-document.addEventListener('click', function(e) {
-  if (e.target.closest('.rations .btn')) {
-    e.preventDefault();
-    e.target.classList.toggle('active');
-  }
-});
   
   // Обработчик для кнопки закрытия
   document.querySelector('.register-close').addEventListener('click', function() {
@@ -1203,5 +1197,168 @@ document.addEventListener('click', function(e) {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const petBirthdayInput = document.getElementById('pet-birthday');
+
+  petBirthdayInput.addEventListener('input', function(e) {
+    // Удаляем все нецифровые символы
+    let value = e.target.value.replace(/\D/g, '');
+    
+    // Добавляем дефисы после 2-й и 4-й цифры
+    if (value.length > 2) {
+      value = value.substring(0, 2) + '-' + value.substring(2);
+    }
+    if (value.length > 5) {
+      value = value.substring(0, 5) + '-' + value.substring(5, 9); // Ограничиваем год до 4 цифр
+    }
+    
+    // Обрезаем лишние символы (если введено больше 8 цифр)
+    if (value.length > 10) {
+      value = value.substring(0, 10);
+    }
+    
+    e.target.value = value;
+  });
+
+  // Обработчик для клавиши Backspace (чтобы можно было удалять дефисы)
+  petBirthdayInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Backspace' && (e.target.value.length === 3 || e.target.value.length === 6)) {
+      e.preventDefault();
+      const newValue = e.target.value.substring(0, e.target.value.length - 1);
+      e.target.value = newValue;
+    }
+  });
+});
 
 
+// Выберити период автозаказа 
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Получаем текущий год
+  const currentYear = new Date().getFullYear();
+  
+  // Сообщения об ошибках
+  const errorMessages = {
+    day: 'Некорректный день',
+    month: 'Некорректный месяц',
+    year: `Год должен быть не меньше ${currentYear}`,
+    format: 'Формат: дд-мм-гггг',
+    period: 'Конечная дата должна быть позже начальной'
+  };
+
+  // Проверка даты (год ≥ текущего)
+  function isValidDate(dateString) {
+    if (!dateString || dateString.length !== 10) return false;
+    
+    const parts = dateString.split('-');
+    if (parts.length !== 3) return false;
+    
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1; // Месяцы в JS: 0-11
+    const year = parseInt(parts[2], 10);
+    
+    // Проверка на числа
+    if (isNaN(day) || isNaN(month) || isNaN(year)) return false;
+    
+    // Проверка года (должен быть ≥ текущего)
+    if (year < currentYear) return { valid: false, error: errorMessages.year };
+    
+    // Проверка месяца
+    if (month < 0 || month > 11) return { valid: false, error: errorMessages.month };
+    
+    // Проверка дня
+    const lastDay = new Date(year, month + 1, 0).getDate();
+    if (day < 1 || day > lastDay) return { valid: false, error: errorMessages.day };
+    
+    return { valid: true, date: new Date(year, month, day) };
+  }
+
+  // Проверка периода (дата начала ≤ даты конца)
+  function isPeriodValid(startDateStr, endDateStr) {
+    const start = isValidDate(startDateStr);
+    const end = isValidDate(endDateStr);
+    
+    if (!start.valid || !end.valid) return false;
+    return start.date <= end.date;
+  }
+
+  // Создание элемента ошибки
+  function showError(input, message) {
+    let error = input.nextElementSibling;
+    if (!error || !error.classList.contains('error-message')) {
+      error = document.createElement('span');
+      error.className = 'error-message';
+      error.style.cssText = 'color:red; font-size:12px; margin-left:5px;';
+      input.parentNode.insertBefore(error, input.nextSibling);
+    }
+    error.textContent = message;
+    input.style.borderColor = 'red';
+  }
+
+  // Удаление ошибки
+  function removeError(input) {
+    const error = input.nextElementSibling;
+    if (error && error.classList.contains('error-message')) {
+      error.remove();
+    }
+    input.style.borderColor = '';
+  }
+
+  // Обработчики для полей даты
+  const [startInput, endInput] = document.querySelectorAll('.cart-total-input input[type="text"]');
+  
+  // Общая функция валидации
+  function validateDates() {
+    const startValue = startInput.value;
+    const endValue = endInput.value;
+    
+    // Валидация начальной даты
+    if (startValue.length === 10) {
+      const startValidation = isValidDate(startValue);
+      if (!startValidation.valid) {
+        showError(startInput, startValidation.error);
+      } else {
+        removeError(startInput);
+      }
+    }
+    
+    // Валидация конечной даты
+    if (endValue.length === 10) {
+      const endValidation = isValidDate(endValue);
+      if (!endValidation.valid) {
+        showError(endInput, endValidation.error);
+      } else {
+        removeError(endInput);
+      }
+    }
+    
+    // Проверка периода (если обе даты валидны)
+    if (startValue.length === 10 && endValue.length === 10) {
+      if (!isPeriodValid(startValue, endValue)) {
+        showError(endInput, errorMessages.period);
+      }
+    }
+  }
+
+  // Обработчики событий
+  [startInput, endInput].forEach(input => {
+    input.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      // Форматирование: дд-мм-гггг
+      if (value.length > 2) value = `${value.slice(0,2)}-${value.slice(2)}`;
+      if (value.length > 5) value = `${value.slice(0,5)}-${value.slice(5,9)}`;
+      
+      e.target.value = value;
+      validateDates();
+    });
+
+    input.addEventListener('blur', validateDates);
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && (e.target.value.length === 3 || e.target.value.length === 6)) {
+        e.preventDefault();
+        e.target.value = e.target.value.slice(0, -1);
+      }
+    });
+  });
+});

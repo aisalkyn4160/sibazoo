@@ -220,11 +220,19 @@
     flex-wrap: wrap;
     gap: 10px;
 }
-.rations .btn{
+.rations input[type="checkbox"]{
+    display: none;
+}
+.rations label{
     background-color: #FAF9F6;
     color: #3C3C3B !important;
+    padding: 10px 16px;
+    border-radius: 16px;
+    transition: all .3s ease;
+    cursor: pointer;
+
 }
-.rations .btn.active{
+.rations input[type="checkbox"]:checked + label{
     background-color: #FFA0A0;
     color: #fff !important;
 }
@@ -232,7 +240,6 @@
     width: 100%;
     opacity: 35%;
 }
-
 .dark-theme .pet-filters{
     background: #3C3C3B;
 }
