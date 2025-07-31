@@ -184,7 +184,28 @@ document.addEventListener("DOMContentLoaded", function () {
       prevEl: ".swiper-button-prev",
     },
   });
+const popularProductsSwiper = new Swiper(".popular-products-swiper", {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
 
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      577: {
+        slidesPerView: 2,
+      },
+      1001: {
+        slidesPerView: 3,
+      },
+    },
+  });
   const offersSwiper = new Swiper(".offers-swiper", {
     loop: true,
     slidesPerView: 3,

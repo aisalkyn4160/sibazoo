@@ -158,15 +158,15 @@
   border-color: #FFA0A0;
 }
 /* popular products */
-.popular-products-cards{
+/* .popular-products-cards{
     display: flex;
     gap: 20px;
     overflow: hidden;
-}
-.popular-products-cards .product-card{
+} */
+/* .popular-products-cards .product-card{
     width: calc(33.33% - 10px);
     flex-shrink: 0;
-}
+} */
 .dark-theme .catalog-button, 
 .dark-theme .filters-btn,
 .dark-theme .sort-btn{

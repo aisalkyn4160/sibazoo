@@ -293,6 +293,9 @@ h6{
 .dark-theme .breadcrumbs span{
 	background-color: rgba(255, 255, 255, 0.45);
 }
+.swiper-button-lock{
+	display: none;
+}
 @media (max-width: 767px){
 	section{
 		padding: 20px 0;
