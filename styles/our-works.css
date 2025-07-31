@@ -10,7 +10,7 @@
   padding: 40px;
   position: sticky;
   border-radius: 40px;
-  top: 0;
+  top: 20px;
   height: auto;
   flex-shrink: 0;
 }
