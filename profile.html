@@ -10,7 +10,7 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.css"> -->
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
@@ -1240,11 +1240,11 @@
 												<div class="cart-total-input">
 													<label for="">Выберити период автозаказа </label>
 													<div>
-														<input type="text" id="" placeholder="__-__-__">
+														<input type="text"  placeholder="__-__-__">
 														<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
 															<path d="M3.04381 5.096C2.63848 5.096 2.27048 5.00267 1.93981 4.816C1.61448 4.62933 1.35315 4.376 1.15581 4.056C0.963813 3.73067 0.867813 3.36533 0.867813 2.96C0.867813 2.55467 0.963813 2.192 1.15581 1.872C1.35315 1.54667 1.61448 1.29067 1.93981 1.104C2.27048 0.917333 2.63848 0.824 3.04381 0.824C3.42248 0.824 3.76915 0.917333 4.08381 1.104C4.40381 1.29067 4.65715 1.54667 4.84381 1.872C5.03581 2.192 5.13181 2.55467 5.13181 2.96C5.13181 3.36533 5.03581 3.73067 4.84381 4.056C4.65715 4.376 4.40381 4.62933 4.08381 4.816C3.76915 5.00267 3.42248 5.096 3.04381 5.096Z" fill="#FFA0A0"/>
 														</svg>
-														<input type="text" id="" placeholder="__-__-__">
+														<input type="text"  placeholder="__-__-__">
 													</div>
 												</div>
 												<div class="cart-total-item">
@@ -1883,7 +1883,103 @@
 
 		</div>
 	</div>
-    <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script>
+	<!-- <div id="pets-edit-data">
+		<div class="pet-filters">
+			<h3>Выберите кого хотите добавить</h3>
+			<svg class="register-close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect width="24" height="24" rx="12" fill="#FAF9F6"/>
+				<path d="M7.75781 7.75739L16.2431 16.2427" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M7.75691 16.2427L16.2422 7.75739" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			<form class="pet-filters-form">
+				<div class="pet-filters-item">
+					<label for="">Питомец</label>
+					<div class="custom-select-wrapper">
+						<div class="custom-select-trigger">Кошка</div>
+						<div class="custom-options">
+							<div class="custom-option" data-value="Кошка">Кошка</div>
+							<div class="custom-option" data-value="Собака">Собака</div>
+							<div class="custom-option" data-value="Рыбка">Рыбка</div>
+							<div class="custom-option" data-value="Грызун">Грызун</div>
+							<div class="custom-option" data-value="Птица">Птица</div>
+						</div>
+						<select class="original-select">
+							<option>Кошка</option>
+							<option>Собака</option>
+							<option>Рыбка</option>
+							<option>Грызун</option>
+							<option>Птица</option>
+						</select>
+					</div>
+				</div>
+				<div class="pet-filters-item">
+					<label for="">Порода</label>
+					<div class="custom-select-wrapper">
+						<div class="custom-select-trigger">Метис</div>
+						<div class="custom-options">
+							<div class="custom-option" data-value="Метис">Метис</div>
+							<div class="custom-option" data-value="Метис2">Метис2</div>
+							<div class="custom-option" data-value="Метис3">Метис3</div>
+						</div>
+						<select class="original-select">
+							<option>Метис</option>
+							<option>Метис2</option>
+							<option>Метис3</option>
+						</select>
+					</div>
+				</div>
+				<div class="pet-filters-item">
+					<label for="pet-name2">Имя</label>
+					<input type="text" id="pet-name2" placeholder="Введите имя питомца">
+				</div>
+				<div class="pet-filters-item">
+					<label for="pet-birthday2">Дата рождения</label>
+					<input type="text" id="pet-birthday2" placeholder="__-__-__">
+					<div class="error-container-birthday" style="color: red; margin: 10px 0; font-size: 12px"></div>
+				</div>
+				<div class="pet-filters-item">
+					<label for="pet-weight2">Вес</label>
+					<input type="text" id="pet-weight2" placeholder="Сколько весит">
+				</div>
+				<div class="pet-filters-item" id="pet-gender-wrapper">
+					<label for="">Пол питомца</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio-group">
+						<span class="radio-icon"></span>
+						<span class="radio-text">Мальчик</span>
+					</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio-group">
+						<span class="radio-icon"></span>
+						<span class="radio-text">Девочка</span>
+					</label>
+					<div class="error-container-gender" style="color: red; margin: 10px 0; font-size: 12px"></div>
+				</div>
+				<div class="castration-checkbox">
+					<input type="checkbox" id="castration2">
+					<label for="castration2">
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4.89163 13.2687L9.16582 17.5427L18.7085 8" stroke="#FFA0A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+					</label>					
+					<span>Кастрация</span>
+				</div>
+				<div class="pet-filters-item">
+					<label>Рацион питания</label>
+					<div class="rations">
+						<input type="checkbox" id="wet-ration2">
+						<label for="wet-ration2">Влажный</label>
+						<input type="checkbox" id="dry-ration2">
+						<label for="dry-ration2">Сухой</label>
+					</div>
+				</div>
+
+				<button class="btn pet-filters-btn">Сохранить</button>
+			</form>
+
+		</div>
+	</div> -->
+	<script src="petsData.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/nouislider@14.7.0/distribute/nouislider.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="cart.js"></script>
     <script src="script.js"></script>
